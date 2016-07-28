@@ -19,8 +19,8 @@ define('APP_DEBUG',True);
 
 // 定义一个新的模块，在Application下，与Home同级
 // 写完这句代码后，浏览器打开首页会自动生成目录
-//define('BIND_MODULE','Views'); // 视图与模板
-define('BIND_MODULE','Modules'); // 模型
+define('BIND_MODULE','Views'); // 视图与模板，以及restful后台
+//define('BIND_MODULE','Modules'); // 模型
 
 // 关闭目录安全文件的生成
 define('BUILD_DIR_SECURE',false);

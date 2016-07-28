@@ -15,7 +15,7 @@ class RawController extends RestController
     protected $allowType      = array('json'); // REST允许请求的资源类型列表
 
     public function index(){
-        echo "raw";
+        $this->createRaw("test");
     }
 
     Public function messages() {
@@ -32,7 +32,7 @@ class RawController extends RestController
                 }elseif($this->_type == 'xml'){
                     echo 'xml';
                 }
-                echo 'default';
+                echo '<br>restful url is correct.';
                 break;
             case 'put': // put请求处理代码
                 if ($this->_type == 'json'){
@@ -42,16 +42,52 @@ class RawController extends RestController
             case 'post': // post请求处理代码
 
 
+
                 $result1 = $GLOBALS['HTTP_RAW_POST_DATA'] ;
+                $object2 = json_decode($result1, true);
                 $data['resultcode']="201";
                 $data['reason']="新建或修改数据成功";
                 $data['error_code']="0";
-                $data['result1']=$result1;
-                $this->response($data,'json');
+                $data['result']=$result1;
+                $data['object2content']=$object2['content'];
+//                $data['data_type']=$this->_type;
 
-                if ($this->_type == 'json'){ // 总是false?
-                }
+                $this->createRaw($object2['content']);
+
+                $this->response($data,'json');
                 break;
         }
+    }
+
+
+    private function createRaw($content){
+        $rawAttribute=array(
+            'rid'=>'php_test',
+            'content'=>$content,
+            'sender'=>'test 01',
+            'type'=>'plain',
+            'remark'=>'0',
+        );
+        D('Raw')->add($rawAttribute);
+    }
+
+    private function listRaws(){
+        dump(D('Raw')->select());
+    }
+
+    private function remarkRaw($rawId){
+        $rawUpdateAttribute = array(
+            'id'=>$rawId,
+            'remark'=>'1',
+        );
+        D('Raw')->save($rawUpdateAttribute);
+    }
+
+    private function deleteRaw($rawId){
+        D('Raw')->delete($rawId);
+    }
+
+    private function showRaw($rawId){
+        dump(D('Raw')->find($rawId));
     }
 }
