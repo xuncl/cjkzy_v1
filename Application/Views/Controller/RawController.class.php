@@ -18,6 +18,10 @@ class RawController extends RestController
         $this->createRaw("test");
     }
 
+    public function demo(){
+        $this->listRaws();
+    }
+
     Public function messages() {
         $data = array(
             "resultcode"=>"105",
