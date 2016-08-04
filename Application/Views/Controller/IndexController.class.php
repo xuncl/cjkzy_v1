@@ -7,7 +7,7 @@ class IndexController extends Controller {
 
 
 
-        $name="xuncl";
+        $name="cjkzy";
         $age = 28;
 //        $this->assign('name',$name);
 //        $this->assign('age',$age);
@@ -26,6 +26,6 @@ class IndexController extends Controller {
 //        $fetchContent = str_replace("l","lllll",$fetchContent);
         $this->show($fetchContent);
 
-        echo "raw";
+        echo "xxxxx";
     }
 }
