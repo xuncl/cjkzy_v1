@@ -87,9 +87,9 @@ class RawController extends RestController
         D('Raw')->save($rawUpdateAttribute);
     }
 
-    private function deleteRaw($rawId){
-        D('Raw')->delete($rawId);
-    }
+//    private function deleteRaw($rawId){
+//        D('Raw')->delete($rawId);
+//    }
 
     private function showRaw($rawId){
         dump(D('Raw')->find($rawId));
