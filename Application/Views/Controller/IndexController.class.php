@@ -26,6 +26,6 @@ class IndexController extends Controller {
 //        $fetchContent = str_replace("l","lllll",$fetchContent);
         $this->show($fetchContent);
 
-        echo "xxxxx";
+        echo "xx";
     }
 }
