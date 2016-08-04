@@ -1,140 +1,71 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="Page Description">
+        <meta name="author" content="CLEVO">
+        <title>Page Title</title>
 
-    <title>用户注册</title>
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/style.css"/>
-    <script type="text/javascript" src="__PUBLIC__/js/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $('.bud label').click(function () {
-                var radioId = $(this).attr('name');
-                $('.bud label').removeAttr('class') && $(this).attr('class', 'checked').addClass("current");
-                $('input[type="radio"]').removeAttr('checked') && $('#' + radioId).attr('checked', 'checked');
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        /*$(document).ready(function(){
-         $("#click").click(function(){
-         $("#succ").show()
-         });
+        <!-- Bootstrap -->
+        <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
 
-         })*/
-    </script>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <h3>欢迎注册块煤网</h3>
+        <form action="{:U('Views/Login/register_do')}" method="post" role="form">
 
-    <style type="text/css">
-        input::-webkit-input-placeholder,
-        textarea::-webkit-input-placeholder {
-            color: #fff;
-        }
-    </style>
-</head>
-<body style=" background:#2CB8F3">
-<include file="Common:common"/>
-<div id="box">
-    <div id="login">
-        <div class="write">
-            <form action="" method="post" id="form_id">
-                <div class="gain">
-                    <input type="text" placeholder="请输入您的手机号" value="" name="phone_number" class="phone"/>
-                    <input type="button" value="获取验证码" class="code"/>
-                </div>
-                <div class="pass">
-                    <input type="text" placeholder="请输入您的验证码" value=""/>
-                </div>
-                <div class="pw">
-                    <input type="password" placeholder="请输入您的密码" value=""/>
-                </div>
-                <div class="pw">
-                    <input type="password" placeholder="请确认您的密码" value=""/>
-                </div>
 
-                <div class="xuanze">选择角色</div>
-                <div class="xuanze" style="margin-top:2%">
-                    <img src="__PUBLIC__/images/heng.png" width="252" height="1"/>
-                </div>
-                <div class="bud">
-               <span>　
-                   <input type="radio" id="nba" name="" value="0">
-                   <label name="nba" for="" id=""></label>车主
-               </span>
-               <span>　　
-                   <input type="radio" name="" value="1" id="wolail">
-                   <label name="cba"></label>货主
-               </span>　
-               <span>
-                   <input type="radio" name="" value="2">
-                   <label name="cba"></label>信息部
-               </span>
-                </div>
-                <input type="hidden" name="type" value="" id="typeVal">
 
-                <div class="agree">
-                    <label class="demo--label"><input class="demo--radio" type="checkbox" name="demo-checkbox1">
-                        <span class="demo--checkbox demo--radioInput"></span>阅读并同意服务条款
-                    </label>
+        	<div class="form-group">
+                <div>
+        		<input type="text" class="form-control" name="phone" id="phone_id" placeholder="输入手机号..." style="width: 50%;margin-left: 0;margin-right: 0">
+                <button type="button" class="btn btn-default" style="width: 35%; margin: auto ">获取验证码</button>
                 </div>
+                <br>
 
-                <div class="enter" style="margin-top:2%" id="click"><input type="button" class="login" value="注册"/>
+                <div>
+                    <input type="text" class="form-control" name="verification" id="verification" placeholder="输入验证码...">
                 </div>
-            </form>
-        </div>
-    </div>
-    <div id="succ">
-        <div class="chenggong">
-            <div class="phrase">
-                <img src="__PUBLIC__/images/chenggong.png" width="37" height="41"/>　注册成功！
+                <br>
+
+        		<input type="password" class="form-control" name="password1" id="password1" placeholder="输入密码...">
+                <br>
+        		<input type="password" class="form-control" name="password2" id="password2" placeholder="确认密码...">
+        	</div>
+
+
+        	<div class="radio" style="text-align: center">
+        		<label>
+        			<input type="radio" name="role_name" id="buyer" value="buyer" >
+                    买家
+        		</label>
+        		<label>
+        			<input type="radio" name="role_name" id="seller" value="seller" >
+                    卖家
+        		</label>
+        		<label>
+        			<input type="radio" name="role_name" id="supplier" value="supplier" >
+                    供应商
+        		</label>
+        	</div>
+
+            <div style="text-align: center">
+                <button type="submit" class="btn btn-primary" style="width: 100%" >注 册</button>
             </div>
-            <!--TODO:change url here-->
-            <a href="{:U('Index/index')}">
-                <div class="wancheng"><input type="button" value="完成并登录"/>
-                </div>
-            </a>
-            <a href="#">
-                <div class="geren"><input type="button" value="完成个人信息"/>
-                </div>
-            </a>
-        </div>
-    </div>
+        </form>
 
-</div>
-</body>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="__PUBLIC__/js/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    </body>
 </html>
-<script type="text/javascript">
-    $(function () {
-        //alert($("input[name=type]").length);
-        $('.enter').click(function () {
-            if (!$(".demo--radio").prop("checked")) {
-                tanchu('请阅读服务条款');
-            }
-            //else if(!$("input[name=type]").prop("checked"))
-            else if (!$(".checked").siblings().val()) {
-                tanchu("请选择角色");
-            }
-            else {
-                var typeVal = $(".checked").siblings().val();
-                $("#typeVal").val(typeVal);
-                //$("#form_id").submit();
-                url = "__CONTROLLER__/register_do";
-                $.ajax({
-                    type: "post",
-                    url: url,
-                    //data:{class_id:class_id},
-                    success: function (data) {
-                        if (data == 0) {
-                            $("#succ").show();
-                        }
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        alert("出现错误！！！");
-                    }
-                });
-            }
-        });
-    });
-</script>
