@@ -41,7 +41,7 @@
             <br>
 
             <div>
-                <input type="text" class="form-control" name="verification" id="verification" placeholder="请输入动态码..." style="width: 55%;padding-left: 2%;display: inline">
+                <input type="text" class="form-control" name="verification" id="verification" placeholder="请输入验证码..." style="width: 55%;padding-left: 2%;display: inline">
                 <span id="login_div">
                     <button type="button" id="codeRandom" onclick="createRandomCode()" class="btn btn-default" style="width: 35%;float: right;margin-right: 3%;border-color: #eaeaea;background-color:#eaeaea;color: #666">获取验证码</button>
                 </span>
@@ -176,7 +176,7 @@
 //                    document.getElementById('codeRandom').disabled=true;
                     if (num==0){
                         clearInterval(i);
-                        $("#login_div").html("<button type='button' id='codeRandom' onclick='createRandomCode()' class='btn btn-default' style='width: 35%;float: right;margin-right: 3%'>获取验证码</button>");
+                        $("#login_div").html("<button type='button' id='codeRandom' onclick='createRandomCode()' class='btn btn-default' style='width: 35%;float: right;margin-right: 3%;border-color: #eaeaea;background-color:#eaeaea;color: #666'>获取验证码</button>");
 //                        document.getElementById('codeRandom').value='测试成功';
 //                        document.getElementById('codeRandom').disabled=false;
                     }
